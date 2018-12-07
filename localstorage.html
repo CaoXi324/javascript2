@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>localStorage</title>
+</head>
+<body>
+    <input id="number">
+    <input id="add" type="button" value="+">
+
+<script>
+    var oNumber=document.getElementById("number");
+    var oAdd=document.getElementById("add");
+    localStorage.setItem('num','0');
+    oNumber.value=localStorage.getItem('num');
+    oAdd.onclick= function() {
+        var n = localStorage.getItem('num');
+        n++;
+        localStorage.setItem('num',n);
+        oNumber.value=localStorage.getItem('num');
+
+    }
+    
+
+
+</script>
+</body>
+</html>

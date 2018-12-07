@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>定时器示例</title>
+</head>
+
+<body>
+
+    <input type="text" id="result" value="00:00">
+    <input type="button" id="start" value="开始">
+    <input type="button" id="stop" value="结束">
+
+    <script>
+        var oResult = document.getElementById("result");
+        var oStart = document.getElementById("start");
+        var oStop = document.getElementById("stop");
+        var n = 0, timer = null;
+
+        oStart.onclick = function () {
+            clearInterval(timer);
+            timer = setInterval(function () {
+                n++;
+                var minute = parseInt(n / 60);
+                var second = parseInt(n % 60);
+                oResult.value= toDub(minute) + ':' + toDub(second);
+            }, 1000 / 60);
+        }
+        oStop.onclick = function () {
+            clearInterval(timer);
+
+        }
+        function toDub(n) {
+            return n < 10 ? '0' + n : '' + n;
+        }
+
+    </script>
+</body>
+
+</html>
